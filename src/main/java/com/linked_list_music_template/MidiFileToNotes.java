@@ -1,11 +1,8 @@
 
 /*
- * c2017 Courtney Brown 
- * 
+ * Anika Krieger 
  * Class: MidiFileToNotes
  * Description: Uses JMusic to get notes & info from a midi file, revised 2024 to include harmony.
- * 
- * 
  */
 
  package com.linked_list_music_template;

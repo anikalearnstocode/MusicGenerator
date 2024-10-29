@@ -1,5 +1,5 @@
 /*
-* c2017-2024 Courtney Brown 
+* Anika Krieger 
 * Class: Main Class for Hello World for CC3 Class Projects streaming MIDI, etc.
 * Description: Demonstration of MIDI file manipulations, etc. & 'MelodyPlayer' sequencer, 2024 - add processing/interactivity
 * 
@@ -25,8 +25,11 @@ public class Main extends PApplet {
 
     //access to files -- I put this in my derived MelodyManager.java class
     static FileSystem sys = FileSystems.getDefault();
-    static String prependPath = "mid"  + sys.getSeparator();
-    static String appendType = ".mid"  + sys.getSeparator();
+    // static String prependPath = "mid"  + sys.getSeparator();
+    // static String appendType = ".mid"  + sys.getSeparator();
+    
+    static String prependPath = "mid/";
+    static String appendType = ".mid";
     
     //all the objects that implement an onpress
     ArrayList<OnMousePress> presses = new ArrayList<>(); 
@@ -52,15 +55,17 @@ public class Main extends PApplet {
         //in another function, setup your linked list and add it to the draws.
     }
 
+    //add drawable melody objects to the draws array to call their draw() ie update()
+    public void addMelodyDraw() {
+        draws.add(melody);
+        draws.add(manager);
+    }
+
+    //test my melody linked lsit by adding all the files
     void addNodes() {
         for (int i=0; i<manager.size(); i++) {
             melody.insertAtEnd (new MelodyNode(manager, i));
         }
-    }
-
-    public void addMelodyDraw() {
-        draws.add(melody);
-        draws.add(manager);
     }
 
     //create & add your buttons to presses & draws 
@@ -70,6 +75,10 @@ public class Main extends PApplet {
         float centerX = width/2; 
         float centerY = height/2; 
         float spacer = 8;
+
+        PlayButton play = new PlayButton(this, melody, centerX, centerY);
+        draws.add(play);
+        presses.add(play);
     }
 
     //doing all the setup stuff for Processing
@@ -95,10 +104,9 @@ public class Main extends PApplet {
         }
     }
 
-    public void keyPressed() {
-        melody.start();
-    }
-
+    // public void keyPressed() {
+    //     melody.start();
+    // }
 
 }
  

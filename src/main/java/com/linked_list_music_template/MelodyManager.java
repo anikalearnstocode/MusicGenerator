@@ -1,3 +1,11 @@
+/*
+ * Anika Krieger
+ * Class: LinkedListMelody
+ * Description: 
+ * 
+ */
+
+
 package com.linked_list_music_template;
 
 import java.util.ArrayList;
@@ -49,4 +57,14 @@ public class MelodyManager {
     {
         players.get(index).reset();
     }
+
+    boolean atEnd (int index) {
+
+        return players.get(index).atEndOfMelody();
+    }
+
+    public void playMelody(int melodyIndex) {
+    
+    }
 }
+

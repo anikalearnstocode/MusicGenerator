@@ -1,15 +1,18 @@
-
-
-
+/*
+ * Anika Krieger
+ * Class: LinkedListMelody
+ * Description: 
+ * 
+ */
 
 package com.linked_list_music_template;
 
-import java.nio.file.FileSystems;
+import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 
 public class LinkedListMelodyManager extends MelodyManager implements Drawable {
 
-    static FileSystems sys = FileSystems.getDefault();
+    static FileSystem sys = FileSystems.getDefault();
     static String prependPath = ".mid" + sys.getSeparator();
     static String appendType = ".mid" + sys.getSeparator();
 
@@ -23,7 +26,7 @@ public class LinkedListMelodyManager extends MelodyManager implements Drawable {
     void setup() {
         
         for (int i=0;i<files.length; i++) {
-            addMidiFile(prependPath+files[i]+appendType);
+            addMidiFiles(prependPath+files[i]+appendType);
         }
     }
 
@@ -33,7 +36,7 @@ public class LinkedListMelodyManager extends MelodyManager implements Drawable {
     }
 
     public void draw() {
-        
+
         playMelodies();
     }
 

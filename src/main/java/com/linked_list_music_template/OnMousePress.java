@@ -1,14 +1,10 @@
-package com.linked_list_music_template;
-
-
 /*
- * c2024 Oct Courtney Brown 
- * 
+ * Anika Krieger
  * Interface: OnMousePress
  * Description: Anything that reacts to a Processing mousepress
- * 
  */
 
+package com.linked_list_music_template;
 
 public interface OnMousePress {
     abstract void onPress();
