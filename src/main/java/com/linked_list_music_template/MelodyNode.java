@@ -36,7 +36,7 @@ public class MelodyNode {
 
     public void start() {
         if (melodies != null) {
-            melodies.playMelody(whichMelody);
+            melodies.start(whichMelody);
         }
     }
 

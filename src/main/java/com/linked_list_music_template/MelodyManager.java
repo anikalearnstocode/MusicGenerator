@@ -50,7 +50,7 @@ public class MelodyManager {
         players.get(index).setRhythm(midiNotes.get(index).getRhythmArray());
         players.get(index).setStartTimes(midiNotes.get(index).getStartTimeArray());
 
-        players.get(index).reset();
+        players.get(index).setToEnd();
     }
 
     void start(int index)

@@ -25,12 +25,9 @@ public class Main extends PApplet {
 
     //access to files -- I put this in my derived MelodyManager.java class
     static FileSystem sys = FileSystems.getDefault();
-    // static String prependPath = "mid"  + sys.getSeparator();
-    // static String appendType = ".mid"  + sys.getSeparator();
-    
-    static String prependPath = "mid/";
-    static String appendType = ".mid";
-    
+    static String prependPath = "mid"  + sys.getSeparator();
+    static String appendType = ".mid"  + sys.getSeparator();
+      
     //all the objects that implement an onpress
     ArrayList<OnMousePress> presses = new ArrayList<>(); 
 
@@ -104,9 +101,9 @@ public class Main extends PApplet {
         }
     }
 
-    // public void keyPressed() {
-    //     melody.start();
-    // }
+    public void keyPressed() {
+        melody.start();
+    }
 
 }
  

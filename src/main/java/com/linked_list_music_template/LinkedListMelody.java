@@ -19,14 +19,13 @@ public class LinkedListMelody implements Drawable {
 
     //draw method from drawable interface
     public void draw() {
-        play();
+       play();
     }
 
     public void start() {
         if (head!= null) {
             curPlayingNode = head; //start from the head
             head.start();
-            curPlayingNode.start(); //start first melody node
         }
     }
 
