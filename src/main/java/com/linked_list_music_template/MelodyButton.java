@@ -3,6 +3,8 @@
  * Classes:
  * MelodyButton: super class for all buttons that use the MelodyLinkedList
  * PlayButton: plays the MelodyLinkedList
+ * StopButton: stops MLL
+ * LoopButton: loops MLL
  * Description: button classes for the linkedlistmelody generator
  */
 
@@ -37,6 +39,36 @@ public abstract class MelodyButton extends Button {
     public void onPress() {
 
         melody.start();
+    }
+
+    class StopButton extends MelodyButton {
+
+        //overload the constructor for MelodyButton -- use default constructor for h, w, color
+        StopButton(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
+    
+            super(main_, melody_, "Stop", x_, y_); 
+        }
+    
+        //start the melody
+        public void onPress() {
+    
+            melody.stop();
+        }
+    }
+
+    class LoopButton extends MelodyButton {
+
+        //overload the constructor for MelodyButton -- use default constructor for h, w, color
+        LoopButton(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
+    
+            super(main_, melody_, "Loop", x_, y_); 
+        }
+    
+        //start the melody
+        public void onPress() {
+    
+            melody.loop(false);
+        }
     }
 
 }

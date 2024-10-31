@@ -8,7 +8,7 @@ package com.linked_list_music_template;
 
 public class MelodyNode {
 
-    private MelodyManager melodies;
+    MelodyManager melodies;
     private MelodyNode next;
     private int whichMelody;
 

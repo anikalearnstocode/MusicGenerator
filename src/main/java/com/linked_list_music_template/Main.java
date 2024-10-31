@@ -76,6 +76,14 @@ public class Main extends PApplet {
         PlayButton play = new PlayButton(this, melody, centerX, centerY);
         draws.add(play);
         presses.add(play);
+
+        StopButton stop = new StopButton(this, melody, centerX, centerY);
+        draws.add(stop);
+        presses.add(stop);
+
+        LoopButton loop = new LoopButton(this, melody, centerX, centerY);
+        draws.add(loop);
+        presses.add(loop);
     }
 
     //doing all the setup stuff for Processing
