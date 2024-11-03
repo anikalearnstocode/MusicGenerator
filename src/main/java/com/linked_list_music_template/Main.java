@@ -71,9 +71,9 @@ public class Main extends PApplet {
         //helpful variables for formatting -- use or not. if you don't use, delete.
         float centerX = width/2; 
         float centerY = height/2; 
-        float spacer = 8;
+        float spacer = 50;
 
-        PlayButton play = new PlayButton(this, melody, centerX, centerY);
+        PlayButton play = new PlayButton(this, melody, centerX, centerY - spacer);
         draws.add(play);
         presses.add(play);
 
@@ -81,7 +81,7 @@ public class Main extends PApplet {
         draws.add(stop);
         presses.add(stop);
 
-        LoopButton loop = new LoopButton(this, melody, centerX, centerY);
+        LoopButton loop = new LoopButton(this, melody, centerX, centerY + spacer);
         draws.add(loop);
         presses.add(loop);
     }

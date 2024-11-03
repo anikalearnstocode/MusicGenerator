@@ -19,10 +19,11 @@ public abstract class MelodyButton extends Button {
 
         //overload the constructor for MelodyButton - use default constructor for h, w, color
     MelodyButton(PApplet main_, LinkedListMelody melody_, String label_,float x_, float y_) {
-
         super(main_, label_, x_, y_); 
         melody = melody_;
     }
+
+    public abstract void onPress();
 
 }
 
@@ -31,25 +32,25 @@ public abstract class MelodyButton extends Button {
 
     //overload the constructor for MelodyButton -- use default constructor for h, w, color
     PlayButton(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
-
         super(main_, melody_, "Play", x_, y_); 
     }
 
     //start the melody
+    @Override
     public void onPress() {
-
         melody.start();
     }
+}
 
-    class StopButton extends MelodyButton {
-
-        //overload the constructor for MelodyButton -- use default constructor for h, w, color
-        StopButton(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
+class StopButton extends MelodyButton {
+    //overload the constructor for MelodyButton -- use default constructor for h, w, color
+    StopButton (PApplet main_, LinkedListMelody melody_, float x_, float y_) {
     
-            super(main_, melody_, "Stop", x_, y_); 
-        }
+        super(main_, melody_, "Stop", x_, y_); 
+    }
     
         //start the melody
+        @Override
         public void onPress() {
     
             melody.stop();
@@ -65,10 +66,10 @@ public abstract class MelodyButton extends Button {
         }
     
         //start the melody
+        @Override
         public void onPress() {
     
-            melody.loop(false);
+            melody.loop(true);
+            //System.out.println("loop button pressed");
         }
     }
-
-}

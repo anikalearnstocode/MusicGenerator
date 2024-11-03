@@ -21,6 +21,8 @@ public class LinkedListMelody implements Drawable {
     //draw method from drawable interface
     public void draw() {
        play();
+    //    stop();
+    //    loop(isLooping);
     }
 
     public void start() {
@@ -34,19 +36,26 @@ public class LinkedListMelody implements Drawable {
     public void play() {
         //check if curPlayingNode is NOT null
         if (curPlayingNode != null) {
+            //System.out.println("Currently playing node index: " + curPlayingNode.getMelodyIndex());
             if (curPlayingNode.atEnd()) {
+                //System.out.println("Reached the end of node: " + curPlayingNode.getMelodyIndex());
                 curPlayingNode = curPlayingNode.getNext();
-
                 if (curPlayingNode != null) {
+                    System.out.println("Playing next node index: " + curPlayingNode.getMelodyIndex());
                     curPlayingNode.start();
                 } else if (isLooping) {
+                    System.out.println("Looping back to the head.");
+
                     start(); //restart from head if looping is true
+                } else {
+                    System.out.println("No more nodes to play and looping is off.");
+
                 }
             }
-        }
-        //check if curPlayingNode is at the end - add atEnd();
+        } else {
+           //System.out.println("No current node to play.");
 
-        //if so, play next node unless it is null
+        }
     }
 
     public void insertAtStart (MelodyNode node) {
@@ -103,6 +112,7 @@ public class LinkedListMelody implements Drawable {
 
     public void loop (boolean loop_) {
         isLooping = loop_;
+        System.out.println("Looping set to:  " + isLooping);
     }
 
     public void stop() {
