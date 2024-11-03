@@ -66,13 +66,15 @@ public abstract class Button implements OnMousePress, Drawable {
     }
 
     //call this in the Processing main mousePressed (or mouseClicked)
-    public void mousePressed(float mx, float my)
-    {
-        if( mx < x + width/2 && mx > x - width/2 && my < y + height/2 && my > y - height/2  )
-        {
+    public void mousePressed(float mx, float my) {
+        if( mx < x + width/2 && mx > x - width/2 && my < y + height/2 && my > y - height/2  ) {
             onPress();
         }
     }
+
+    // protected boolean isInside(float mx, float my) {
+    //     return (mx > x && mx < x + width && my > y && my < y + height);
+    // }
 
     //some get/sets -- useful for formatting
     float getWidth(){return width;}

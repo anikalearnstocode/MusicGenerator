@@ -37,6 +37,10 @@ public class Main extends PApplet {
     LinkedListMelodyManager manager = new LinkedListMelodyManager();
     LinkedListMelody melody = new LinkedListMelody();
 
+    //WeaveUnitTest weaveUnitTest = new WeaveUnitTest(); // Create an instance of WeaveUnitTest
+   //TestWeaveButton weaveTestButton = new TestWeaveButton(this, 50, 50, 100, 40, "Run Weave Tests", weaveUnitTest);
+    
+
     public static void main(String[] args) {
         PApplet.main("com.linked_list_music_template.Main");       
     }
@@ -61,6 +65,7 @@ public class Main extends PApplet {
     //test my melody linked lsit by adding all the files
     void addNodes() {
         for (int i=0; i<manager.size(); i++) {
+         //   melody.insertAtEnd (new MelodyNode(manager, i));
             melody.insertAtEnd (new MelodyNode(manager, i));
         }
     }
@@ -73,17 +78,26 @@ public class Main extends PApplet {
         float centerY = height/2; 
         float spacer = 50;
 
-        PlayButton play = new PlayButton(this, melody, centerX, centerY - spacer);
+        PlayButton play = new PlayButton(this, melody, centerX, centerY - spacer * 2);
         draws.add(play);
         presses.add(play);
 
-        StopButton stop = new StopButton(this, melody, centerX, centerY);
+        StopButton stop = new StopButton(this, melody, centerX, centerY - spacer);
         draws.add(stop);
         presses.add(stop);
 
-        LoopButton loop = new LoopButton(this, melody, centerX, centerY + spacer);
+        LoopButton loop = new LoopButton(this, melody, centerX, centerY);
         draws.add(loop);
         presses.add(loop);
+
+        WeaveButton1 weave1 = new WeaveButton1(this, melody, centerX, centerY + spacer);
+        draws.add(weave1);
+        presses.add(weave1);
+
+        WeaveButton2 weave2 = new WeaveButton2(this, melody, centerX, centerY + spacer * 2);
+        draws.add(weave2);
+        presses.add(weave2);
+
     }
 
     //doing all the setup stuff for Processing
@@ -101,8 +115,7 @@ public class Main extends PApplet {
     }
 
     //handle all the mousePressed functions for all our objects.
-    public void mousePressed()
-    {
+    public void mousePressed() {
         for(OnMousePress press : presses )
         {
             press.mousePressed(mouseX, mouseY);
@@ -112,6 +125,5 @@ public class Main extends PApplet {
     public void keyPressed() {
         melody.start();
     }
-
 }
  

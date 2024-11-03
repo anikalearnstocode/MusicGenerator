@@ -73,3 +73,33 @@ class StopButton extends MelodyButton {
             //System.out.println("loop button pressed");
         }
     }
+
+    class WeaveButton1 extends MelodyButton {
+
+        WeaveButton1(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
+    
+            super(main_, melody_, "Weave 1", x_, y_); 
+        }
+    
+        //start the melody
+        @Override
+        public void onPress() {
+
+            melody.startWeave1();
+        }
+    }
+
+    class WeaveButton2 extends MelodyButton {
+
+        WeaveButton2(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
+    
+            super(main_, melody_, "Weave 2", x_, y_); 
+        }
+    
+        //start the melody
+        @Override
+        public void onPress() {
+
+            melody.startWeave2();
+        }
+    }

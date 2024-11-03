@@ -9,12 +9,13 @@ package com.linked_list_music_template;
 public class MelodyNode {
 
     MelodyManager melodies;
-    private MelodyNode next;
-    private int whichMelody;
+    MelodyNode next;
+    int whichMelody;
 
     //constructor
     public MelodyNode(MelodyManager melodies, int whichMelody) {
         this.melodies = melodies;
+        //this.melodies = null;
         this.whichMelody = whichMelody;
         this.next = null;
     }
@@ -45,7 +46,7 @@ public class MelodyNode {
     // }
 
     public MelodyNode copy() {
-        MelodyNode copyNode = new MelodyNode (this.melodies, this.whichMelody);
+        MelodyNode copyNode = new MelodyNode (melodies, this.whichMelody);
         copyNode.setNext(this.next);
         return copyNode;
     }

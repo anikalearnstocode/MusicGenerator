@@ -166,4 +166,16 @@ public class LinkedListMelody implements Drawable {
             }
         }
     }
+
+    public MelodyNode getHead() {
+        return head;
+    }
+
+    public void startWeave1() {
+
+    }
+
+    public void startWeave2() {
+        
+    }
 }
