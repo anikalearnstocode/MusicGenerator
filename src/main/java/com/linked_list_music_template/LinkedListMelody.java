@@ -131,6 +131,9 @@ public class LinkedListMelody implements Drawable {
             current = weaveNode.getNext();
             count--;
         }
+
+        weave(node, 3, 4);
+        weave(node,5, 10);
     }
 
     public void clear() {
