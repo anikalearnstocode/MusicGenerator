@@ -11,9 +11,10 @@ public class WeaveUnitTest {
     LinkedListMelody melodyList; //linkedlistmelody object
 
     //constructor
-    public WeaveUnitTest() {
-        manager  = new MelodyManager(); //initialize MelodyManager here
+    public WeaveUnitTest(MelodyManager manager_) {
+        manager  = manager_; //initialize MelodyManager here
         melodyList = new LinkedListMelody();
+
     }
 
     //test weave 1
@@ -29,6 +30,7 @@ public class WeaveUnitTest {
 
 
         //print the melody
+        System.out.println("Expected: 3, 3, 3, 0, 3, 3, 3, 0, 3, 3, 3, 0, 3, 3, 3, 0");
         melodyList.print(); //expected output is Melody: 3, 3, 3, 0, 3, 3, 3, 0, 3, 3, 3, 0, 3, 3, 3, 0
     }
     
@@ -41,7 +43,7 @@ public class WeaveUnitTest {
 
         melodyList.weave(new MelodyNode(manager, 0), 5, 10);
 
-        //System.out.print("Melody: ");
+        System.out.println("Expected: 3, 3, 3, 3, 3, 0, 3, 3, 3, 3, 3, 0, 3, 3");
         melodyList.print();
     }
 

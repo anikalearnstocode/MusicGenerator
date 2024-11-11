@@ -103,3 +103,39 @@ class StopButton extends MelodyButton {
             melody.startWeave2();
         }
     }
+
+    class PrintMelody extends MelodyButton {
+
+        PrintMelody(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
+    
+           super(main_, melody_, "Print Melody", x_, y_); 
+        }
+    
+        //start the melody
+        @Override
+        public void onPress() {
+
+            melody.print();
+        }
+    }
+
+    class WeaveUnitTestButton extends MelodyButton {
+
+        WeaveUnitTest weaveUnitTest;
+
+
+        WeaveUnitTestButton(PApplet main_, LinkedListMelody melody_, float x_, float y_, MelodyManager manager_) {
+    
+            super(main_, melody_, "Weave Unit Test", x_, y_); 
+            weaveUnitTest = new WeaveUnitTest(manager_);
+
+
+        }
+    
+        //start the melody
+        @Override
+        public void onPress() {
+
+            weaveUnitTest.runTests();
+        }
+    }

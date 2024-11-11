@@ -21,8 +21,6 @@ public class LinkedListMelody implements Drawable {
     //draw method from drawable interface
     public void draw() {
        play();
-    //    stop();
-    //    loop(isLooping);
     }
 
     public void start() {
@@ -40,6 +38,7 @@ public class LinkedListMelody implements Drawable {
             if (curPlayingNode.atEnd()) {
                 //System.out.println("Reached the end of node: " + curPlayingNode.getMelodyIndex());
                 curPlayingNode = curPlayingNode.getNext();
+
                 if (curPlayingNode != null) {
                     System.out.println("Playing next node index: " + curPlayingNode.getMelodyIndex());
                     curPlayingNode.start();
@@ -59,11 +58,15 @@ public class LinkedListMelody implements Drawable {
     }
 
     public void insertAtStart (MelodyNode node) {
+        System.out.println("Inserting node at start with melody index: " + node.getMelodyIndex());
+
         node.setNext(head);
         head = node;
     }
 
     public void insertAtEnd(MelodyNode node) {
+       // System.out.println("List is empty. Adding node as head with melody index: " + node.getMelodyIndex());
+
         if (head == null) {
             head = node;
         } else {
@@ -71,6 +74,8 @@ public class LinkedListMelody implements Drawable {
             while (current.getNext() != null) {
                 current = current.getNext();
             }
+
+          //  System.out.println("Inserting node at end with melody index: " + node.getMelodyIndex());
             current.setNext(node);
         }
     }
@@ -124,19 +129,23 @@ public class LinkedListMelody implements Drawable {
         MelodyNode current = head;
         int position = 0;
 
-        while (current != null) {
-            MelodyNode weaveNode = new MelodyNode(node.melodies, node.getMelodyIndex());
-            weaveNode.setNext(current.getNext());
-            current.setNext(weaveNode);
-            current = weaveNode.getNext();
-            count--;
+        while (current != null && count > 0) {
+            position++;
+            if (position % skip == 0) {
+                MelodyNode weaveNode = new MelodyNode(node.melodies, node.getMelodyIndex());
+                weaveNode.setNext(current.getNext());
+                current.setNext(weaveNode);
+                current = weaveNode.getNext();
+                count--;
+            } else {
+                current = current.getNext();
+            }
         }
-
-        weave(node, 3, 4);
-        weave(node,5, 10);
     }
 
     public void clear() {
+        System.out.println("Clearing the linked list.");
+
         head = null;
         curPlayingNode = null;
         isLooping = false;
@@ -175,10 +184,19 @@ public class LinkedListMelody implements Drawable {
     }
 
     public void startWeave1() {
-
+        MelodyNode testNode = new MelodyNode(null, 0);
+        
+        weave(testNode, 3, 4);
     }
 
     public void startWeave2() {
-        
+        MelodyNode testNode = new MelodyNode(null, 0);
+        weave(testNode, 5, 10);
     }
+
+    // @BeforeEach
+    // public void setUp() {
+    //     melody = new LinkedListMelody();
+    // }
+
 }

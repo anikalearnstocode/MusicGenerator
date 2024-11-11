@@ -98,6 +98,14 @@ public class Main extends PApplet {
         draws.add(weave2);
         presses.add(weave2);
 
+        PrintMelody printMelody = new PrintMelody(this, melody, centerX, centerY + spacer * 2 + 50);
+        draws.add(printMelody);
+        presses.add(printMelody);
+
+        WeaveUnitTestButton weaveUnitTestButton = new WeaveUnitTestButton(this, melody, centerX, centerY + spacer * 2 + 100, manager);
+        draws.add(weaveUnitTestButton);
+        presses.add(weaveUnitTestButton);
+
     }
 
     //doing all the setup stuff for Processing
