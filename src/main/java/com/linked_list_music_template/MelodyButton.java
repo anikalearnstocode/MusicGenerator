@@ -2,9 +2,6 @@
  * Anika Krieger
  * Classes:
  * MelodyButton: super class for all buttons that use the MelodyLinkedList
- * PlayButton: plays the MelodyLinkedList
- * StopButton: stops MLL
- * LoopButton: loops MLL
  * Description: button classes for the linkedlistmelody generator
  */
 
@@ -27,7 +24,7 @@ public abstract class MelodyButton extends Button {
 
 }
 
-// Playbutton -- play the melodylinkedlist
+//playbutton starts the linkedlistmelody playback
  class PlayButton extends MelodyButton {
 
     //overload the constructor for MelodyButton -- use default constructor for h, w, color
@@ -42,6 +39,7 @@ public abstract class MelodyButton extends Button {
     }
 }
 
+//stopbutton stops the linkedlistmelody playback
 class StopButton extends MelodyButton {
     //overload the constructor for MelodyButton -- use default constructor for h, w, color
     StopButton (PApplet main_, LinkedListMelody melody_, float x_, float y_) {
@@ -56,7 +54,8 @@ class StopButton extends MelodyButton {
             melody.stop();
         }
     }
-
+    
+    //loopbutton toggles looping of the linkedlistmelody
     class LoopButton extends MelodyButton {
 
         //overload the constructor for MelodyButton -- use default constructor for h, w, color
@@ -70,10 +69,10 @@ class StopButton extends MelodyButton {
         public void onPress() {
     
             melody.loop(true);
-            //System.out.println("loop button pressed");
         }
     }
 
+    //weavebutton1 initiates the first weaving pattern on the linkedlistmelody
     class WeaveButton1 extends MelodyButton {
 
         WeaveButton1(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
@@ -85,10 +84,11 @@ class StopButton extends MelodyButton {
         @Override
         public void onPress() {
 
-            melody.startWeave1();
+            melody.startWeave1(); //apply weave pattern 1
         }
     }
 
+    //weavebutton2 initiates the second weaving pattern on the linkedlistmelody
     class WeaveButton2 extends MelodyButton {
 
         WeaveButton2(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
@@ -100,10 +100,11 @@ class StopButton extends MelodyButton {
         @Override
         public void onPress() {
 
-            melody.startWeave2();
+            melody.startWeave2(); //apply weave pattern 2
         }
     }
 
+    //printmelody prints the structure of the linkedlistmelody to the console
     class PrintMelody extends MelodyButton {
 
         PrintMelody(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
@@ -115,10 +116,11 @@ class StopButton extends MelodyButton {
         @Override
         public void onPress() {
 
-            melody.print();
+            melody.print(); //output melody structure
         }
     }
 
+    //weaveunittestbutton runs unit tests on weaving patterns for linkedlistmelody
     class WeaveUnitTestButton extends MelodyButton {
 
         WeaveUnitTest weaveUnitTest;
@@ -127,7 +129,7 @@ class StopButton extends MelodyButton {
         WeaveUnitTestButton(PApplet main_, LinkedListMelody melody_, float x_, float y_, MelodyManager manager_) {
     
             super(main_, melody_, "Weave Unit Test", x_, y_); 
-            weaveUnitTest = new WeaveUnitTest(manager_);
+            weaveUnitTest = new WeaveUnitTest(manager_); //initialize with melody manager
 
 
         }
@@ -136,10 +138,11 @@ class StopButton extends MelodyButton {
         @Override
         public void onPress() {
 
-            weaveUnitTest.runTests();
+            weaveUnitTest.runTests(); //execute weaving unit tests
         }
     }
 
+    //reverselist reverses the order of nodes in the linledlistmelody
     class ReverseList extends MelodyButton {
 
         ReverseList(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
@@ -151,10 +154,11 @@ class StopButton extends MelodyButton {
         @Override
         public void onPress() {
 
-            melody.reverse();
+            melody.reverse(); //reverse melody node order
         }
     }
 
+    //clearlist clears all nodes in the linkedlistmelody
     class ClearList extends MelodyButton {
 
         ClearList(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
@@ -166,6 +170,6 @@ class StopButton extends MelodyButton {
         @Override
         public void onPress() {
 
-            melody.clear();
+            melody.clear(); //clear melody nodes
         }
     }

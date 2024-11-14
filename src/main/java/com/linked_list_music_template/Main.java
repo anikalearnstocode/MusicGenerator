@@ -106,6 +106,7 @@ public class Main extends PApplet {
         draws.add(weaveUnitTestButton);
         presses.add(weaveUnitTestButton);
 
+        //not sure based on the rubric if these two extra methods are supposed to be buttons or not, so I added them just in case!
         ReverseList reverseList = new ReverseList(this, melody, centerX + 160, centerY - spacer * 2);
         draws.add(reverseList);
         presses.add(reverseList);
@@ -138,6 +139,7 @@ public class Main extends PApplet {
         }
     }
 
+    //handle all keyPressed - specifically call the LinkedListMelody start method on keyPressed
     public void keyPressed() {
         melody.start();
     }
