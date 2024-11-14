@@ -106,6 +106,14 @@ public class Main extends PApplet {
         draws.add(weaveUnitTestButton);
         presses.add(weaveUnitTestButton);
 
+        ReverseList reverseList = new ReverseList(this, melody, centerX + 160, centerY - spacer * 2);
+        draws.add(reverseList);
+        presses.add(reverseList);
+
+        ClearList clearList = new ClearList(this, melody, centerX + 160, centerY - spacer);
+        draws.add(clearList);
+        presses.add(clearList);
+
     }
 
     //doing all the setup stuff for Processing

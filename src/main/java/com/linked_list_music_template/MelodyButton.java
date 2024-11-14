@@ -139,3 +139,33 @@ class StopButton extends MelodyButton {
             weaveUnitTest.runTests();
         }
     }
+
+    class ReverseList extends MelodyButton {
+
+        ReverseList(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
+    
+            super(main_, melody_, "Reverse", x_, y_); 
+        }
+    
+        //start the melody
+        @Override
+        public void onPress() {
+
+            melody.reverse();
+        }
+    }
+
+    class ClearList extends MelodyButton {
+
+        ClearList(PApplet main_, LinkedListMelody melody_, float x_, float y_) {
+    
+            super(main_, melody_, "Clear", x_, y_); 
+        }
+    
+        //start the melody
+        @Override
+        public void onPress() {
+
+            melody.clear();
+        }
+    }

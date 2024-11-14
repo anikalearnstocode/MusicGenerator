@@ -1,12 +1,8 @@
 /*
- * c2024 Oct Courtney Brown 
- * 
- * Class: Button
- * Description: A generic button object. If you want to spice it up by adding things like changing colors on mouse press, changing fonts,
- * etc. etc. feel free dudes, but this is NOT required.
- * 
- * To use -- inherit from this class & implement in the 'onPressed' method
- * 
+ * Anika Krieger
+ * Class Name: Button
+ * Class Description: Generic button with customizable properties, detects mouse clicks 
+ * and triggers an action when pressed.
  */
 
 
@@ -15,19 +11,18 @@ package com.linked_list_music_template;
 import processing.core.*;
 
 public abstract class Button implements OnMousePress, Drawable {
-    PApplet main; //access to Processing
-    float height; //how tall the button is
-    float width; //how wide the button is
+    PApplet main; //Processing reference
+    float height; //button height
+    float width; //button width
 
-    float x; //location
-    float y;
+    float x; //x-coord
+    float y; //y-coord
 
     int color; //color of the button
     String label; //the text that will be writton on top of the button
 
-    //indents for placement of text inside the button. maximized for the default sizes -- write a get/set to change these if you want.
-    int textIndentX = 10;
-    int textIndexY = 5;
+    int textIndentX = 10; //horizontal text offset
+    int textIndexY = 5; //vertical text offset
     
 
     //initializes all these variables & the main object reference
@@ -55,7 +50,7 @@ public abstract class Button implements OnMousePress, Drawable {
     }
 
 
-    //draws the button according to parameters.
+    //draws the button on screen according to parameters.
     public void draw()
     {
         main.fill(color);
@@ -71,10 +66,6 @@ public abstract class Button implements OnMousePress, Drawable {
             onPress();
         }
     }
-
-    // protected boolean isInside(float mx, float my) {
-    //     return (mx > x && mx < x + width && my > y && my < y + height);
-    // }
 
     //some get/sets -- useful for formatting
     float getWidth(){return width;}

@@ -1,8 +1,7 @@
 /*
  * Anika Krieger
  * Class: LinkedListMelody
- * Description: 
- * 
+ * Description: Linked list managing melody playback with looping and modification options.
  */
 
 
@@ -32,41 +31,31 @@ public class LinkedListMelody implements Drawable {
 
     //play each node in the list
     public void play() {
-        //check if curPlayingNode is NOT null
         if (curPlayingNode != null) {
-            //System.out.println("Currently playing node index: " + curPlayingNode.getMelodyIndex());
             if (curPlayingNode.atEnd()) {
-                //System.out.println("Reached the end of node: " + curPlayingNode.getMelodyIndex());
                 curPlayingNode = curPlayingNode.getNext();
-
                 if (curPlayingNode != null) {
                     System.out.println("Playing next node index: " + curPlayingNode.getMelodyIndex());
                     curPlayingNode.start();
                 } else if (isLooping) {
                     System.out.println("Looping back to the head.");
-
                     start(); //restart from head if looping is true
                 } else {
                     System.out.println("No more nodes to play and looping is off.");
-
                 }
             }
-        } else {
-           //System.out.println("No current node to play.");
-
         }
     }
 
+    // insert node at start of list
     public void insertAtStart (MelodyNode node) {
         System.out.println("Inserting node at start with melody index: " + node.getMelodyIndex());
-
         node.setNext(head);
         head = node;
     }
 
+    // insert node at end of list
     public void insertAtEnd(MelodyNode node) {
-       // System.out.println("List is empty. Adding node as head with melody index: " + node.getMelodyIndex());
-
         if (head == null) {
             head = node;
         } else {
@@ -74,12 +63,11 @@ public class LinkedListMelody implements Drawable {
             while (current.getNext() != null) {
                 current = current.getNext();
             }
-
-          //  System.out.println("Inserting node at end with melody index: " + node.getMelodyIndex());
             current.setNext(node);
         }
     }
 
+    // insert node at specific index
     public void insert(int index, MelodyNode node) {
         if (index == 0) {
             insertAtStart(node);
@@ -96,14 +84,15 @@ public class LinkedListMelody implements Drawable {
         }
     }
 
+    // check if list is empty
     public boolean isEmpty() {
         return head == null;
     }
 
+    //print all melody indices
     public void print() {
         MelodyNode current = head;
         StringBuilder melodyString = new StringBuilder("Melody: ");
-
         while (current != null) {
             melodyString.append(current.getMelodyIndex());
             current = current.getNext();
@@ -111,20 +100,22 @@ public class LinkedListMelody implements Drawable {
                 melodyString.append(", ");
             }
         }
-
         System.out.println(melodyString);
     }
 
+    // enable or disable looping
     public void loop (boolean loop_) {
         isLooping = loop_;
         System.out.println("Looping set to:  " + isLooping);
     }
 
+    //stop playback and disable looping
     public void stop() {
         curPlayingNode = null;
         isLooping = false; //disable looping
     }
 
+    //weave nodes into the list at intervals
     public void weave (MelodyNode node, int count, int skip) {
         MelodyNode current = head;
         int position = 0;
@@ -143,6 +134,7 @@ public class LinkedListMelody implements Drawable {
         }
     }
 
+    //reverse the linked list
     public void clear() {
         System.out.println("Clearing the linked list.");
 
@@ -151,6 +143,7 @@ public class LinkedListMelody implements Drawable {
         isLooping = false;
     }
 
+    //reverse the linked list
     public void reverse() {
         MelodyNode previous = null;
         MelodyNode current = head;
@@ -165,6 +158,7 @@ public class LinkedListMelody implements Drawable {
         head = previous;
     }
 
+    //add new node after a specific index
     public void addAfterIndex(int targetIndex, MelodyNode newNode) {
         MelodyNode current = head;
         while (current != null) {
@@ -183,6 +177,7 @@ public class LinkedListMelody implements Drawable {
         return head;
     }
 
+    // test weave functionality with preset values
     public void startWeave1() {
         MelodyNode testNode = new MelodyNode(null, 0);
         
